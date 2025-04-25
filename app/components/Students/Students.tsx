@@ -1,120 +1,63 @@
-"use client"
-import Slider from "react-slick";
-import React, { Component } from "react";
+const ContactSection = () => {
+    return (
+        <section id="contact-us" className="bg-white py-16 px-6 sm:px-8 lg:px-12 border-t border-amber-100">
+            <div className="max-w-7xl mx-auto">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Connect With Us</h2>
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                        We welcome you to visit, call, or join our virtual or in-person classes. Whether you’re just beginning or deepening your journey, our doors—and hearts—are open.
+                    </p>
+                </div>
 
-// CAROUSEL DATA
+                <div className="grid gap-10 lg:grid-cols-2">
+                    <div className="space-y-6 text-gray-700">
+                        <h3 className="text-xl font-semibold text-amber-600">Our Location</h3>
+                        <p>
+                            <strong>5b, Tarmac Road, Adalemo,</strong><br />
+                            Sango Ota, Ogun State, Nigeria
+                        </p>
 
-interface DataType {
-    profession: string;
-    name: string;
-    imgSrc: string;
-    starimg: string;
-    detail: string;
-}
+                        <h3 className="text-xl font-semibold text-amber-600">Contact Numbers</h3>
+                        <p>
+                            <a href="tel:+2349029887690" className="block hover:underline">+234 902 988 7690</a>
+                            <a href="tel:+2349054610771" className="block hover:underline">+234 905 461 0771</a>
+                        </p>
 
-const postData: DataType[] = [
-    {
-        profession: 'UX/UI Designer',
-        name: 'Andrew Williams',
-        imgSrc: '/assets/students/user-1.jpg',
-        starimg: '/assets/students/stars.png',
-        detail: "I have been a Junior Graphic Designer for more then 10 years. Some things are problem that I had and teach how to solve them. That's why this course is so great!"
-    },
-    {
-        profession: 'UX/UI Designer',
-        name: 'Cristian Doru Barin',
-        imgSrc: '/assets/students/user-2.jpg',
-        starimg: '/assets/students/stars.png',
-        detail: "I have been a Junior Graphic Designer for more then 10 years. Some things are problem that I had and teach how to solve them. That's why this course is so great!"
-    },
-    {
-        profession: 'UX/UI Designer',
-        name: 'Tanzeel Ur Rehman',
-        imgSrc: '/assets/students/user-3.jpg',
-        starimg: '/assets/students/stars.png',
-        detail: "I have been a Junior Graphic Designer for more then 10 years. Some things are problem that I had and teach how to solve them. That's why this course is so great!"
-    },
-    {
-        profession: 'UX/UI Designer',
-        name: 'Andrew Williams',
-        imgSrc: '/assets/students/user-1.jpg',
-        starimg: '/assets/students/stars.png',
-        detail: "I have been a Junior Graphic Designer for more then 10 years. Some things are problem that I had and teach how to solve them. That's why this course is so great!"
-    },
-]
+                        <h3 className="text-xl font-semibold text-amber-600">Modes of Learning</h3>
+                        <ul className="list-disc pl-5 space-y-2">
+                            <li>📍 On-site physical classes</li>
+                            <li>🕓 Weekend & flexible schedules</li>
+                            <li>🏫 Boarding & personalized arrangements available</li>
+                            <li>💻 Virtual classes via Zoom & Google Meet</li>
+                        </ul>
 
-// CAROUSEL SETTINGS
-
-
-export default class MultipleItems extends Component {
-
-    render() {
-        const settings = {
-            dots: true,
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            arrows: false,
-            autoplay: false,
-            speed: 2000,
-            autoplaySpeed: 2000,
-            cssEase: "linear",
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: true
-                    }
-                },
-                {
-                    breakpoint: 800,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: true
-                    }
-                }
-            ]
-        };
-
-
-        return (
-            <div id="testimonial-section" className='bg-bgpink'>
-                <div className="mx-auto max-w-2xl px-4 pt-16 pb-64 sm:pt-32 lg:max-w-7xl lg:px-8">
-
-                    <div className='sm:flex justify-between items-center pb-6'>
-                        <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 my-4">What Our Happy <br /> Students Says</h2>
-                        <div>
-                            <button className="bg-transparent hover:bg-purple text-purple font-semibold hover:text-white py-3 px-4 border border-lightgrey hover:border-transparent rounded">
-                                Give Your Review
-                            </button>
-                        </div>
+                        <h3 className="text-xl font-semibold text-amber-600">Availability</h3>
+                        <p>
+                            We accommodate learners of all ages and backgrounds. Whether you’re nearby or across the world, there’s a space for you in our learning community.
+                        </p>
                     </div>
 
-                    <p className='text-lg font-medium pb-12'>Build skills with our courses and mentor from world-class companies.</p>
-
-                    <Slider {...settings}>
-                        {postData.map((items, i) => (
-                            <div key={i}>
-                                <div className='bg-white m-4 pt-8 px-12 pb-10 text-center rounded-lg'>
-                                    <div className='relative'>
-                                        <img src={items.imgSrc} alt="gaby" className="inline-block h-16 w-16 m-auto rounded-full ring-2 ring-white" />
-                                        <img src={'/assets/students/greenpic.svg'} alt="greenbg" className=" absolute inline-block h-6 w-6 position-green" />
-                                    </div>
-                                    <h3 className='text-sm pt-4 pb-2'>{items.profession}</h3>
-                                    <h4 className='text-2xl font-semibold pb-3'>{items.name}</h4>
-                                    <img src={items.starimg} alt="stars-img" className='m-auto pb-6' />
-                                    <p className='text-lg font-medium leading-9'>{items.detail}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </Slider>
+                    <div className="bg-amber-50 p-8 rounded-xl shadow-sm space-y-6">
+                        <h4 className="text-2xl font-bold text-gray-800">Ready to Start?</h4>
+                        <p className="text-gray-700">
+                            Reach out to begin your journey of Quranic memorization, Tajweed mastery, Arabic fluency, or Islamic scholarship with us.
+                        </p>
+                        <div>
+                            <a
+                                href="https://wa.me/2349029887690"
+                                className="inline-block bg-amber-600 hover:bg-amber-700 text-black font-medium px-6 py-3 rounded-lg transition duration-300"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Message Us on WhatsApp
+                            </a>
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
-        );
-    }
-}
+        </section>
+    );
+};
+
+export default ContactSection;

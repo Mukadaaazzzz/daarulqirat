@@ -1,106 +1,81 @@
-// MENTORS DATA
+"use client"
+import * as React from "react";
 
-interface Product {
-    id: number;
-    name: string;
-    href: string;
-    imageSrc: string;
-    imageAlt: string;
-    color: string;
-}
+const AboutInstitution = () => {
+  return (
+    <div id="about-section" className="bg-white py-24 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            The <span className="text-amber-600">Daarul-Qirat</span> Tradition
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Where authentic Islamic knowledge meets contemporary education
+          </p>
+        </div>
 
-const products: Product[] = [
-    {
-        id: 1,
-        name: 'Senior UX Designer',
-        href: '#',
-        imageSrc: '/assets/mentor/boy1.svg',
-        imageAlt: "Front of men's Basic Tee in black.",
-        color: 'Shoo Thar Mein',
-    },
-    {
-        id: 2,
-        name: 'Photoshop Instructor',
-        href: '#',
-        imageSrc: '/assets/mentor/boy2.svg',
-        imageAlt: "Front of men's Basic Tee in black.",
-        color: 'Cristian Doru Barin',
-    },
-    {
-        id: 3,
-        name: 'SEO Expert',
-        href: '#',
-        imageSrc: '/assets/mentor/boy3.svg',
-        imageAlt: "Front of men's Basic Tee in black.",
-        color: 'Tanzeel Ur Rehman',
-    },
-    {
-        id: 4,
-        name: 'UI/UX Designer',
-        href: '#',
-        imageSrc: '/assets/mentor/boy4.svg',
-        imageAlt: "Front of men's Basic Tee in black.",
-        color: 'Andrew Williams',
-    },
-    {
-        id: 5,
-        name: 'Web Development / Web Design',
-        href: '#',
-        imageSrc: '/assets/mentor/boy5.svg',
-        imageAlt: "Front of men's Basic Tee in black.",
-        color: 'Brad Schiff',
-    },
-    {
-        id: 6,
-        name: 'Adobe Certified Instructor',
-        href: '#',
-        imageSrc: '/assets/mentor/girl1.svg',
-        imageAlt: "Front of men's Basic Tee in black.",
-        color: 'Daniel Walter Scott',
-    },
-]
-
-const Mentor = () => {
-    return (
-            <div id="mentors-section" className="mx-auto max-w-2xl pb-16 px-4 sm:py-20 sm:px-6 lg:max-w-7xl lg:px-8">
-
-                <div className='sm:flex justify-between items-center mb-12'>
-                    <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 my-4">Meet with our Mentors</h2>
-                    <div>
-                        <button className="bg-transparent hover:bg-purple text-purple font-medium hover:text-white py-3 px-4 border border-lightgrey hover:border-transparent rounded">
-                            Explore 10+ our Mentor
-                        </button>
-                    </div>
+        <div className="grid md:grid-cols-2 gap-12 mb-20">
+          <div className="bg-amber-50 p-8 rounded-2xl">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">Our Distinct Approach</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start">
+                <div className="flex-shrink-0 mt-1">
+                  <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center text-amber-600">✓</div>
                 </div>
-
-                <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-                    {products.map((product) => (
-                        <div key={product.id} className="group relative">
-                            <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none lg:h-80">
-                                <img
-                                    src={product.imageSrc}
-                                    alt={product.imageAlt}
-                                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                                />
-                            </div>
-                            <div className="mt-4 flex justify-center ">
-                                <div>
-                                    <div className='border border-white rounded-lg -mt-8 bg-white p-2 mentorShadow'>
-                                        <h3 className="text-sm text-gray-700 text-center">
-                                            <a href={product.href}>
-                                                <span aria-hidden="true" className="absolute inset-0" />
-                                                {product.name}
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <p className="mt-3 text-2xl font-semibold text-offblack text-center">{product.color}</p>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+                <p className="ml-3 text-gray-700">
+                  <span className="font-medium">Balanced Curriculum:</span> Combining classical Islamic sciences with modern educational methodologies
+                </p>
+              </li>
+              <li className="flex items-start">
+                <div className="flex-shrink-0 mt-1">
+                  <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center text-amber-600">✓</div>
                 </div>
+                <p className="ml-3 text-gray-700">
+                  <span className="font-medium">Personalized Learning:</span> Tailored programs for students at all levels of understanding
+                </p>
+              </li>
+              <li className="flex items-start">
+                <div className="flex-shrink-0 mt-1">
+                  <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center text-amber-600">✓</div>
+                </div>
+                <p className="ml-3 text-gray-700">
+                  <span className="font-medium">Community Focus:</span> Developing scholars who serve as beacons in their communities
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <div className="bg-gray-50 p-8 rounded-2xl">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">Core Values</h3>
+            <div className="space-y-6">
+              <div>
+                <h4 className="font-medium text-gray-900">Authenticity</h4>
+                <p className="mt-1 text-gray-600">Teaching rooted in Quran, Sunnah, and classical scholarly tradition</p>
+              </div>
+              <div>
+                <h4 className="font-medium text-gray-900">Excellence</h4>
+                <p className="mt-1 text-gray-600">Commitment to the highest standards of academic and spiritual development</p>
+              </div>
+              <div>
+                <h4 className="font-medium text-gray-900">Accessibility</h4>
+                <p className="mt-1 text-gray-600">Making sacred knowledge available to all seekers regardless of background</p>
+              </div>
             </div>
-    )
-}
+          </div>
+        </div>
 
-export default Mentor;
+        <div className="bg-gradient-to-r from-amber-50 to-gray-50 p-8 rounded-2xl text-center">
+          <div className="max-w-2xl mx-auto">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">Guided by Vision</h3>
+            <p className="text-gray-700 mb-6">
+              Under the leadership of Imam Oladiti Abdulkabir Alamalyaqeen, our institution maintains its commitment to preserving Islamic tradition while addressing contemporary challenges. With over two decades of scholarly dedication, Imam Alamalyaqeen ensures our curriculum remains both authentic and relevant.
+            </p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default AboutInstitution;

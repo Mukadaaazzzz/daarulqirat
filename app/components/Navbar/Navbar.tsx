@@ -38,20 +38,18 @@ const Navbar = () => {
                     <div className="relative flex h-20 items-center justify-between">
                         <div className="flex flex-1 items-center sm:items-stretch sm:justify-start">
 
-                            {/* LOGO */}
-
-                            <div className="flex flex-shrink-0 items-center">
-                                <img
-                                    className="block h-30px w-30px lg:hidden"
-                                    src={'/assets/logo/Logo.svg'}
-                                    alt="Courses-Logo"
-                                />
-                                <img
-                                    className="hidden h-48px w-48px lg:block"
-                                    src={'/assets/logo/Logo.svg'}
-                                    alt="Courses-Logo"
-                                />
-                            </div>
+                        <div className="flex flex-shrink-0 items-center">
+                        <img
+    className="block h-6 w-24 lg:hidden"
+    src={'/assets/logo/islam.svg'}
+    alt="Courses-Logo"
+/>
+<img
+    className="hidden h-10 w-10 lg:block"
+    src={'/assets/logo/islam.svg'}
+    alt="Courses-Logo"
+/>
+</div>
 
                             {/* LINKS */}
 

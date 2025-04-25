@@ -1,246 +1,68 @@
-"use client"
+"use client";
+
 import * as React from "react";
-import { useState } from "react";
-import { GlobeAltIcon, DevicePhoneMobileIcon, CircleStackIcon, CloudIcon } from '@heroicons/react/24/outline';
 
-
-interface Name {
-    course: string;
-    imageSrc: string;
-    profession: string
-    price: string
-    category: 'mobiledevelopment' | 'webdevelopment' | 'datascience' | 'cloudcomputing';
-}
-
-const names: Name[] = [
-    {
-        course: 'HTML, CSS, JS',
-        imageSrc: '/assets/courses/coursesOne.svg',
-        profession: 'HTML, CSS, Javascript Development',
-        price: '40',
-        category: 'webdevelopment'
-    },
-    {
-        course: 'Node.js',
-        imageSrc: '/assets/courses/coursesTwo.svg',
-        profession: 'Backend with Node.js and Express.js',
-        price: '21',
-        category: 'webdevelopment'
-    },
-    {
-        course: 'Database',
-        imageSrc: '/assets/courses/coursesThree.svg',
-        profession: 'Learn Mongodb with Mongoose',
-        price: '21',
-        category: 'webdevelopment'
-    },
-    {
-        course: 'React.js',
-        imageSrc: '/assets/courses/coursesFour.svg',
-        profession: 'Learn React with Redux toolkit',
-        price: '99',
-        category: 'webdevelopment'
-    },
-    {
-        course: 'React Native',
-        imageSrc: '/assets/courses/coursesOne.svg',
-        profession: 'Learn React Native with Node.js',
-        price: '89',
-        category: 'mobiledevelopment'
-    },
-    {
-        course: 'Swift',
-        imageSrc: '/assets/courses/coursesThree.svg',
-        profession: 'Learn Swift from Scratch',
-        price: '89',
-        category: 'mobiledevelopment'
-    },
-    {
-        course: 'Flutter',
-        imageSrc: '/assets/courses/coursesFour.svg',
-        profession: 'Flutter App Development',
-        price: '69',
-        category: 'mobiledevelopment'
-    },
-    {
-        course: 'Onsen UI',
-        imageSrc: '/assets/courses/coursesTwo.svg',
-        profession: 'Learn Onsen Ui with HTML, CSS',
-        price: '69',
-        category: 'mobiledevelopment'
-    },
-    {
-        course: 'TensorFlow',
-        imageSrc: '/assets/courses/coursesTwo.svg',
-        profession: 'Learn TensorFlow with SQL',
-        price: '99',
-        category: 'datascience'
-    },
-    {
-        course: 'AWS',
-        imageSrc: '/assets/courses/coursesFour.svg',
-        profession: 'AWS Deep Learning AMI',
-        price: '99',
-        category: 'datascience'
-    },
-    {
-        course: 'Bokeh',
-        imageSrc: '/assets/courses/coursesOne.svg',
-        profession: 'Learn Bokeh with Python',
-        price: '99',
-        category: 'datascience'
-    },
-    {
-        course: 'Scikit',
-        imageSrc: '/assets/courses/coursesThree.svg',
-        profession: 'Scikit with Python Development',
-        price: '89',
-        category: 'datascience'
-    },
-    {
-        course: 'Laas',
-        imageSrc: '/assets/courses/coursesThree.svg',
-        profession: 'Infra-as-a-Service',
-        price: '21',
-        category: 'cloudcomputing'
-    },
-    {
-        course: 'Iaas',
-        imageSrc: '/assets/courses/coursesFour.svg',
-        profession: 'Info-as-a-Service',
-        price: '29',
-        category: 'cloudcomputing'
-    },
-    {
-        course: 'Paas',
-        imageSrc: '/assets/courses/coursesOne.svg',
-        profession: 'Platform-as-a-Service',
-        price: '99',
-        category: 'cloudcomputing'
-    },
-    {
-        course: 'Saas',
-        imageSrc: '/assets/courses/coursesTwo.svg',
-        profession: 'Software-as-a-Service',
-        price: '58',
-        category: 'cloudcomputing'
-    }
+const daarulQiratCourses = [
+  {
+    level: "Kindergarten",
+    titleEn: "Arabic Spelling",
+    titleAr: "تهجئة عربية",
+    descriptionEn: "Learn Arabic letters and their pronunciation.",
+    descriptionAr: "تعلم الحروف العربية ونطقها الصحيح."
+  },
+  {
+    level: "Primary Class",
+    titleEn: "Core Islamic Sciences (5 Subjects)",
+    titleAr: "العلوم الإسلامية الأساسية (٥ مواد)",
+    descriptionEn : "Hadith, Tajweed, Arabic Language, Fiqh, and Hifz.",
+    descriptionAr : "الحديث، التجويد، اللغة العربية، الفقه، وغيرها."
+  },
+ 
+  {
+    level: "Preliminary Class",
+    titleEn: "Islamic Studies (12 Subjects)",
+    titleAr: "دروس تمهيدية (١٢ مادة)",
+    descriptionEn:
+      "Nahw, Tawheed, Tafsir, Sarf, Fiqh, Shi'er, Arabic Language, Hadith, Adhkar, Inshaa, Seerah, Tajweed.",
+    descriptionAr:
+      "النحو، التوحيد، التفسير، الصرف، الفقه، الشعر، اللغة العربية، الحديث، الأذكار، الإنشاء، السيرة، التجويد."
+  },
+  {
+    level: "Senior Class",
+    titleEn: "Advanced Islamic Sciences (16 Subjects)",
+    titleAr: "الدروس المتقدمة (١٦ مادة)",
+    descriptionEn:
+      "Tawheed, Nahw, Uloom al-Qur'an, Balagha, Fiqh, Sarf, Usool al-Fiqh, Arud, Hadith, Arabic Language, Mustalah al-Hadith, Adab, Seerah, Tajweed, Ilm al-Mawarith, Nusus al-Shi'ru.",
+    descriptionAr:
+      "التوحيد، النحو، علوم القرآن، البلاغة، الفقه، الصرف، أصول الفقه، العروض، الحديث، اللغة العربية، مصطلح الحديث، الأدب، السيرة، التجويد، علم المواريث، نصوص الشعر."
+  }
 ];
 
-const NamesList = () => {
+const DaarulQiratCourses = () => {
+  return (
+    <div className="bg-white py-20 px-6 lg:px-20">
+      <h2 className="text-4xl font-bold text-center text-green-800 mb-12">
+        Our Certified Programs at Daarul Qirat
+      </h2>
+      <div className="grid gap-10 lg:grid-cols-2">
+        {daarulQiratCourses.map((course, idx) => (
+          <div
+            key={idx}
+            className="border border-gray-200 shadow-xl p-6 rounded-2xl hover:shadow-2xl transition duration-300"
+          >
+            <h3 className="text-2xl font-semibold text-purple-700 mb-1">
+              {course.level}
+            </h3>
+            <h4 className="text-xl font-bold text-gray-800 mb-2">
+              {course.titleEn} <span className="text-sm text-gray-400">| {course.titleAr}</span>
+            </h4>
+            <p className="text-gray-600 mb-1">{course.descriptionEn}</p>
+            <p className="text-right text-sm text-gray-500 italic">{course.descriptionAr}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-    const [selectedButton, setSelectedButton] = useState<'mobiledevelopment' | 'webdevelopment' | 'datascience' | 'cloudcomputing' | 'all' | null>('webdevelopment');
-
-    const mobileDevelopment = names.filter((name) => name.category === 'mobiledevelopment');
-    const webDevelopment = names.filter((name) => name.category === 'webdevelopment');
-    const dataScience = names.filter((name) => name.category === 'datascience');
-    const cloudComputing = names.filter((name) => name.category === 'cloudcomputing');
-
-    let selectedNames: Name[] = [];
-
-    if (selectedButton === 'mobiledevelopment') {
-        selectedNames = mobileDevelopment;
-    } else if (selectedButton === 'webdevelopment') {
-        selectedNames = webDevelopment;
-    } else if (selectedButton === 'datascience') {
-        selectedNames = dataScience;
-    } else if (selectedButton === 'cloudcomputing') {
-        selectedNames = cloudComputing
-    }
-
-
-    const nameElements = selectedNames.map((name, index) => (
-
-        <div key={index}>
-            <div className=" text-lg sm:text-sm py-5 lg:py-0">
-                <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                    <img
-                        src={name.imageSrc}
-                        alt={name.imageSrc}
-                        className="h-full w-full object-cover object-center"
-                    />
-                </div>
-                <div className='flex justify-between'>
-                    <div className="mt-6 block font-normal text-gray-900">
-                        {name.course}
-                    </div>
-                    <div className="mt-6 block text-lg font-semibold text-green border-solid border-2 border-green rounded-md px-1">
-                        ${name.price}
-                    </div>
-                </div>
-                <p aria-hidden="true" className="mt-2 mb-5 text-2xl font-semibold ">
-                    {name.profession}
-                </p>
-
-                <div className='flex justify-between border-solid border-2 border-grey500 rounded-md p-2'>
-                    <p>12 Classes</p>
-                    <div className='flex flex-row space-x-4'>
-                        <div className='flex'>
-                            <img src={'/assets/courses/account.svg'} alt="circle" />
-                            <p className='text-lightgrey ml-1'>120</p>
-                        </div>
-                        <div className='flex'>
-                            <img src={'/assets/courses/Star.svg'} alt="star" />
-                            <p className='ml-1'>4.5</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    ));
-
-
-    return (
-        <div>
-            <div id='courses-section' className="mx-auto max-w-2xl py-16 px-4 sm:py-36 sm:px-6 lg:max-w-7xl lg:px-8">
-
-                <div className='sm:flex justify-between items-center pb-12'>
-                    <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 my-4">Popular Courses</h2>
-                    <div>
-                        <button className="bg-transparent hover:bg-purple text-purple font-medium hover:text-white py-3 px-4 border border-purple hover:border-transparent rounded">
-                            Explore Classes
-                        </button>
-                    </div>
-                </div>
-
-                <div className='flex nowhitespace space-x-5 rounded-xl bg-white p-1 overflow-x-auto'>
-
-                    {/* FOR DESKTOP VIEW */}
-                    <button onClick={() => setSelectedButton('webdevelopment')} className={"bg-white " + (selectedButton === 'webdevelopment' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Web Development</button>
-                    <button onClick={() => setSelectedButton('mobiledevelopment')} className={"bg-white " + (selectedButton === 'mobiledevelopment' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Mobile Development</button>
-                    <button onClick={() => setSelectedButton('datascience')} className={"bg-white " + (selectedButton === 'datascience' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Data Science</button>
-                    <button onClick={() => setSelectedButton('cloudcomputing')} className={"bg-white " + (selectedButton === 'cloudcomputing' ? 'text-black border-b-2 border-orange' : 'text-lightgrey') + " pb-2 text-lg hidden sm:block"}>Cloud Computing</button>
-
-                    {/* FOR MOBILE VIEW */}
-                    <GlobeAltIcon onClick={() => setSelectedButton('webdevelopment')} width={70} height={70} className={"bg-white " + (selectedButton === 'webdevelopment' ? 'border-b-2 border-orange fill-orange' : '') + " pb-2 block sm:hidden"} />
-                    <DevicePhoneMobileIcon onClick={() => setSelectedButton('mobiledevelopment')} width={70} height={70} className={"bg-white " + (selectedButton === 'mobiledevelopment' ? 'border-b-2 border-orange fill-orange' : '') + " pb-2 block sm:hidden"} />
-                    <CircleStackIcon onClick={() => setSelectedButton('datascience')} width={70} height={70} className={"bg-white " + (selectedButton === 'datascience' ? 'border-b-2 border-orange fill-orange' : '') + " pb-2 block sm:hidden"} />
-                    <CloudIcon onClick={() => setSelectedButton('cloudcomputing')} width={70} height={70} className={"bg-white " + (selectedButton === 'cloudcomputing' ? 'border-b-2 border-orange fill-orange' : '') + " pb-2 block sm:hidden"} />
-
-                </div>
-
-                <div>
-                    <div className="mx-auto max-w-7xl">
-                        <div className="grid grid-cols-1 gap-y-10 gap-x-8 py-12">
-                            <div className="col-start-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8">
-                                {nameElements.length > 0 ? (
-                                    nameElements
-                                ) : (
-                                    <p>No data to show</p>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    );
-}
-
-export default NamesList;
-
-
-
-
+export default DaarulQiratCourses;

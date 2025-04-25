@@ -1,95 +1,79 @@
 "use client"
-import React, { Component } from "react";
-import Slider from "react-slick";
+import React from "react";
 
-// IMAGES DATA FOR CAROUSEL
-interface Data {
-    imgSrc: string;
+interface QuranText {
+    arabic: string;
+    translation: string;
+    reference: string;
 }
 
-const data: Data[] = [
+const quranTexts: QuranText[] = [
     {
-        imgSrc: "/assets/slickCompany/airbnb.svg"
+        arabic: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ",
+        translation: "Read in the name of your Lord who created.",
+        reference: "Surah Al-Alaq (96:1)"
     },
     {
-        imgSrc: "/assets/slickCompany/hubspot.svg"
+        arabic: "عَلَّمَ الْإِنسَانَ مَا لَمْ يَعْلَمْ",
+        translation: "He taught man what he did not know.",
+        reference: "Surah Al-Alaq (96:5)"
     },
     {
-        imgSrc: "/assets/slickCompany/microsoft.svg"
-    },
-    {
-        imgSrc: "/assets/slickCompany/google.svg"
-    },
-    {
-        imgSrc: "/assets/slickCompany/walmart.svg"
-    },
-    {
-        imgSrc: "/assets/slickCompany/fedex.svg"
-    },
-]
+        arabic: "وَقُل رَّبِّ زِدْنِي عِلْمًا",
+        translation: "And say: My Lord, increase me in knowledge.",
+        reference: "Surah Ta-Ha (20:114)"
+    }
+];
 
-
-// CAROUSEL SETTINGS
-export default class MultipleItems extends Component {
-    render() {
-        const settings = {
-            dots: false,
-            infinite: true,
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            arrows: false,
-            autoplay: true,
-            speed: 2000,
-            autoplaySpeed: 2000,
-            cssEase: "linear",
-            responsive: [
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 4,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: false
-                    }
-                },
-                {
-                    breakpoint: 700,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: false
-                    }
-                },
-                {
-                    breakpoint: 500,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: false
-                    }
-                }
-            ]
-        };
-
-        return (
-
-            <div className='text-center bg-lightpink' >
-                <div className="mx-auto max-w-2xl py-16 px-4s sm:px-6 lg:max-w-7xl lg:px-8">
-                    <h2 className="text-lg my-10 text-lightgrey">Trusted by companies of all sizes</h2>
-                    <div>
-                        <Slider {...settings}>
-                            {data.map((item, i) =>
-                                <div key={i}>
-                                    <img src={item.imgSrc} alt={item.imgSrc} />
+export default function QuranSection() {
+    return (
+        <div className='text-center bg-white py-16 px-4'>
+            <div className="mx-auto max-w-3xl">
+                <h2 className="text-xl font-medium mb-12 text-purple">Quranic Wisdom on Seeking Knowledge</h2>
+                
+                <div className="overflow-x-hidden group relative py-8">
+                    <div className="flex animate-scroll hover:animation-paused">
+                        {[...quranTexts, ...quranTexts].map((item, i) => (
+                            <div key={i} className="flex-shrink-0 px-8 min-w-[300px]">
+                                <div className="text-block">
+                                    <p className="text-2xl mb-4 font-bold text-yellow-600 rtl" dir="rtl">{item.arabic}</p>
+                                    <p className="text-lg mb-2 text-gray-800">{item.translation}</p>
+                                    <p className="text-sm text-gray-500">{item.reference}</p>
                                 </div>
-                            )}
-                        </Slider>
+                            </div>
+                        ))}
                     </div>
                 </div>
+                
+                <div className="mt-12 pt-8 border-t border-gray-200">
+                    <p className="text-lg text-gray-700">
+                        Join us at Daarul-Qirat to embark on a journey of learning the noble Quran and 
+                        Arabic language through our specialized courses taught by expert scholars.
+                    </p>
+                </div>
             </div>
-
-        )
-    }
+            
+            <style jsx global>{`
+                @keyframes scroll {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                
+                .animate-scroll {
+                    animation: scroll 20s linear infinite;
+                    display: flex;
+                }
+                
+                .hover\:animation-paused:hover {
+                    animation-play-state: paused;
+                }
+                
+                @media (max-width: 640px) {
+                    .animate-scroll {
+                        animation-duration: 30s;
+                    }
+                }
+            `}</style>
+        </div>
+    );
 }
