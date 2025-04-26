@@ -8,14 +8,14 @@ const Banner = () => {
     return (
         <main className='bg-white'>
             <div className="relative px-6 lg:px-8">
-                <div className="mx-auto max-w-5xl pt-16 sm:pt-32 sm:pb-24  bg-gray-100 rounded-lg py-12 px-8">
+                <div className="mx-auto max-w-5xl pt-16 sm:pt-32 sm:pb-24">
                     {/* Added logo image at the top center */}
                     <div className="flex justify-center mb-8">
                         <Image
-                    
+                            
                             src={'/assets/logo/logg.png'}
-                            height={38 * 4} 
-                             width={44 * 4}
+                            height={38 * 4} // Or whatever the actual intended height is
+                            width={44 * 4}
                             alt="Arabic Institute Logo"
                         />
                     </div>
@@ -49,7 +49,7 @@ const Banner = () => {
                 </a>
                 
                 <div className="mt-6 text-center">
-                <hr className="mt-8 border-t-2 border-gray-200" />
+                 <hr className="mt-8 border-t-2 border-gray-200" />
                 </div>
                 </div>
                             </div>
