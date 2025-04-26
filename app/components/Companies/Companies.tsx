@@ -27,8 +27,8 @@ const quranTexts: QuranText[] = [
 
 export default function QuranSection() {
     return (
-        <div className='text-center bg-white py-16 px-4'>
-            <div className="mx-auto max-w-3xl">
+        <div className='text-center bg-white py-16 px-4 '>
+            <div className="mx-auto max-w-3xl mt-[-6rem]">
                 <h2 className="text-xl font-medium mb-12 text-purple">Quranic Wisdom on Seeking Knowledge</h2>
                 
                 <div className="overflow-x-hidden group relative py-8">

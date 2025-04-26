@@ -40,7 +40,7 @@ const daarulQiratCourses = [
 
 const DaarulQiratCourses = () => {
   return (
-    <div className="bg-white py-20 px-6 lg:px-20">
+    <div id="courses-section" className="bg-white py-20 px-6 lg:px-20">
       <h2 className="text-4xl font-bold text-center text-green-800 mb-12">
         Our Certified Programs at Daarul Qirat
       </h2>

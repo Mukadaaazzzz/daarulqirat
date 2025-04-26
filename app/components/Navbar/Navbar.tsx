@@ -1,12 +1,11 @@
 import { Disclosure } from '@headlessui/react';
+import Image from 'next/image';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import React from 'react';
 import Drawer from "./Drawer";
 import Drawerdata from "./Drawerdata";
-import Signdialog from "./Signdialog";
-import Registerdialog from "./Registerdialog";
-import Contactus from "./Contactus";
+
 
 
 interface NavigationItem {
@@ -18,8 +17,7 @@ interface NavigationItem {
 const navigation: NavigationItem[] = [
     { name: 'Home', href: '/', current: true },
     { name: 'Courses', href: '#courses-section', current: false },
-    { name: 'Mentors', href: '#mentors-section', current: false },
-    { name: 'Testimonial', href: '#testimonial-section', current: false },
+    { name: 'About', href: '#about-section', current: false },
     { name: 'Join', href: '#join-section', current: false },
 ]
 
@@ -39,20 +37,18 @@ const Navbar = () => {
                         <div className="flex flex-1 items-center sm:items-stretch sm:justify-start">
 
                         <div className="flex flex-shrink-0 items-center">
-                        <img
-    className="block h-6 w-24 lg:hidden"
+                        
+<Image
+    
     src={'/assets/logo/islam.svg'}
-    alt="Courses-Logo"
-/>
-<img
-    className="hidden h-10 w-10 lg:block"
-    src={'/assets/logo/islam.svg'}
+    height={10 * 4} 
+    width={10 * 4}
     alt="Courses-Logo"
 />
 </div>
 
                             {/* LINKS */}
-
+                            <div className="flex justify-end w-full">
                             <div className="hidden sm:ml-14 md:block">
                                 <div className="flex space-x-4">
                                     {navigation.map((item) => (
@@ -68,19 +64,19 @@ const Navbar = () => {
                                             {item.name}
                                         </Link>
                                     ))}
-                                    <Contactus />
+                                    
                                 </div>
                             </div>
                         </div>
-
+                        </div>
                         {/* SIGNIN DIALOG */}
 
-                        <Signdialog />
+                  
 
 
                         {/* REGISTER DIALOG */}
 
-                        <Registerdialog />
+                        
 
 
                         {/* DRAWER FOR MOBILE VIEW */}
